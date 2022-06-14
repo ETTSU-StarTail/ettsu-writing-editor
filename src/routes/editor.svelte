@@ -16,19 +16,29 @@
 
 <script lang="ts">
 	import Writing from '$lib/Writing.svelte';
+	import { editors, idIncrement } from '$lib/store.js';
 
-	let editors = [{ counter: 0, content: '' }];
+	$editors = [
+		{
+			id: 0,
+			count: 0,
+			title: '',
+			content: ''
+		}
+	];
+	idIncrement.set(1);
 
-	function addWriting() {
-		console.log(editors[0]);
+	function addWriting(): void {
+		const l: number = $editors.length;
 
-		const l = editors.length;
-		editors[l] = {
-			counter: 0,
+		$editors[l] = {
+			id: $idIncrement,
+			count: 0,
+			title: '',
 			content: ''
 		};
+		$idIncrement++;
 	}
-	$: console.log(editors);
 </script>
 
 <svelte:head>
@@ -44,7 +54,7 @@
 
 	<ol>
 		<li>
-			こんな仕事をしています（業務内容※今のでも過去のでも） ★300～350字程度
+			こんな仕事をしています（業務内容） ★300～350字程度
 			<ul>
 				<li>どんなプロジェクトか（学生に分かりやすく）</li>
 				<li>自分が担当している業務（学生に分かりやすく）</li>
@@ -64,16 +74,24 @@
 			</ul>
 		</li>
 		<li>
-			就活生へのメッセージ　★100～130字程度
+			就活生へのメッセージ ★100～130字程度
 			<ul />
 		</li>
 	</ol>
 
-	<button on:click={addWriting}>Add Editor</button>
+	<button on:click={addWriting} class="btn">Add Editor</button>
 
-	{#each editors as editor}
-		<svelte:component this={Writing} counter={editor.counter} content={editor.content} />
-	{/each}
+	<div class="editor-area">
+		{#each $editors as editor}
+			<svelte:component
+				this={Writing}
+				bind:id={editor.id}
+				bind:count={editor.count}
+				bind:title={editor.title}
+				bind:content={editor.content}
+			/>
+		{/each}
+	</div>
 </div>
 
 <style>
@@ -85,5 +103,29 @@
 		width: 100%;
 		max-width: var(--column-width);
 		margin: var(--column-margin-top) auto 0 auto;
+	}
+
+	.editor-area {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: flex-start;
+		gap: 2rem;
+		width: 100%;
+		max-width: var(--column-width);
+		margin: 1rem auto 0 auto;
+	}
+
+	.btn {
+		padding: 0.5rem 1rem;
+		background-color: skyblue;
+		border: none;
+		border-radius: 2rem;
+		outline: none;
+		transition: 0.2s;
+	}
+
+	.btn:hover {
+		background-color: aquamarine;
+		transition: 0.1s;
 	}
 </style>
