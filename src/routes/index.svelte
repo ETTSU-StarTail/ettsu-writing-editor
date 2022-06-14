@@ -4,6 +4,13 @@
 
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
+
+	import { onMount } from 'svelte';
+
+	// まだ仕組みがよくわかってないので一時的に飛ばしてしまおう。
+	onMount(() => {
+		document.getElementById('to-editor')?.click();
+	});
 </script>
 
 <svelte:head>
@@ -12,6 +19,7 @@
 </svelte:head>
 
 <section>
+	<a sveltekit:prefetch id="to-editor" href="/editor">editor</a>
 	<h1>
 		<span class="welcome">
 			<picture>
