@@ -17,7 +17,7 @@
 <script lang="ts">
 	import Writing from '$lib/Writing.svelte';
 
-	let editors = [{}];
+	let editors = [{ counter: 0, content: '' }];
 
 	function addWriting() {
 		console.log(editors[0]);
