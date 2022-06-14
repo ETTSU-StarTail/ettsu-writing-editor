@@ -106,7 +106,7 @@ dist
 # SvelteKit
 .DS_Store
 /build
-/.svelte-kit
+.svelte-kit
 /package
 .env.*
 !.env.example
