@@ -1,42 +1,30 @@
 # ettsu-writing-editor
 
-web テキストエディタ
+文章書くときにテーマ別に書きたいけど、1 つの場所で書きたい時の web テキストエディタ。
 
-## create-svelte
+- テーマの数の分だけ Add Editor ボタンをクリックでエディタ増加。
+- エディタにある Delete ボタンをクリックでエディタ削除
+- それぞれのエディタが文字数カウントを備える
+- 既存記法に対応したい
+  - Markdown
+  - Asciidoctor
+- 出力機能を付けたい
+  - エディタごとに出力要否を設定
+  - 出力が必要なエディタごとにファイルにする
+  - ファイルは zip に入れて DL させる
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## 進捗
 
-### Creating a project
+テンプレートに追記した程度で作成したまで。
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 稼働
 
-```bash
-## create a new project in the current directory
-npm init svelte
-
-## create a new project in my-app
-npm init svelte my-app
-```
-
-### Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-## or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-### Building
-
-To create a production version of your app:
+とりあえずの。
 
 ```bash
-npm run build
+npm run preview -- --open
 ```
 
-You can preview the production build with `npm run preview`.
+## サンプル画像
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![サンプル](./doc/img/sample.jpeg)
