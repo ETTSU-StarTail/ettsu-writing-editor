@@ -22,7 +22,7 @@
 とりあえずの。
 
 ```bash
-npm run preview -- --open
+npm run dev -- --open
 ```
 
 ## サンプル画像
