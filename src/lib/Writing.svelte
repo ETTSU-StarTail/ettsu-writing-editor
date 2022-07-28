@@ -17,7 +17,7 @@
 	}
 
 	function copyContent(): void {
-		navigator.clipboard.writeText(`Title: ${title}\ncontent: ${content}`);
+		navigator.clipboard.writeText(`Title:\n${title}\ncontent:\n${content}`);
 	}
 
 	function clearContent(): void {
